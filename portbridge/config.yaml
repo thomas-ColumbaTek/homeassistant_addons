@@ -7,7 +7,7 @@ arch:
   - aarch64
   - amd64
   - armv7
-
+init: false                 # ← REQUIRED for s6 v3 so /init is PID 1
 # Start order: services start before Home Assistant, application after
 startup: services
 
