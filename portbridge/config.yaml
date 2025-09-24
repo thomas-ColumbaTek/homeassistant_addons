@@ -1,0 +1,45 @@
+name: PortBridge (Ingress)
+slug: portbridge
+version: "0.1.0"
+description: "Ultra-light Ingress reverse proxy to expose any local host service/port inside Home Assistant."
+url: "https://github.com/YOUR_GITHUB_USERNAME/portbridge-addon-repo"
+arch:
+  - aarch64
+  - amd64
+  - armv7
+
+# Start order: services start before Home Assistant, application after
+startup: services
+
+# Enable Ingress so this add-on is same-origin with Home Assistant
+ingress: true
+ingress_port: 8099
+
+# Sidebar settings (optional; Ingress provides Web UI)
+panel_title: "PortBridge"
+panel_icon: "mdi:lan"
+
+# Allow access to host services like 127.0.0.1:7000
+host_network: true
+
+# Optional direct Web UI (debugging)
+webui: "http://[HOST]:[PORT:8099]/"
+
+# Allow multiple instances (one per upstream port)
+multiple: true
+
+options:
+  upstream_host: "127.0.0.1"        # Host that runs your target service
+  upstream_port: 7000               # Port of the target service
+  upstream_scheme: "http"           # "http" or "https"
+  upstream_insecure: false          # If https: skip TLS verification when true
+  strip_x_frame_options: true       # Hide X-Frame-Options from upstream (iframe)
+  content_security_policy: "frame-ancestors 'self';"
+
+schema:
+  upstream_host: str
+  upstream_port: int
+  upstream_scheme: list(http|https)
+  upstream_insecure: bool
+  strip_x_frame_options: bool
+  content_security_policy: str?
