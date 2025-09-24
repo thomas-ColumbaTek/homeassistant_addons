@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bashio
+#!/command/with-contenv bashio
 # Configure nginx at container start based on add-on options.
 # Generates /etc/nginx/nginx.conf dynamically.
 set -euo pipefail
