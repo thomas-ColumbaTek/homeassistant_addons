@@ -1,8 +1,8 @@
 name: PortBridge (Ingress)
 slug: portbridge
-version: "0.1.0"
+version: "0.1.1"
 description: "Ultra-light Ingress reverse proxy to expose any local host service/port inside Home Assistant."
-url: "https://github.com/YOUR_GITHUB_USERNAME/portbridge-addon-repo"
+url: "https://github.com/thomas-ColumbaTek/homeassistant_addons/"
 arch:
   - aarch64
   - amd64
